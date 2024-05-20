@@ -5,8 +5,8 @@
 
 ## 1. Cluster Setup
 
-To create a local Kubernetes cluster:
+To setup a local cluster with kind and Flux:
 
 ```bash
-kind create cluster --config kind-config.yaml
+./bootstrap.sh
 ```

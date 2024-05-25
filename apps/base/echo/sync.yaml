@@ -1,0 +1,27 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: echo
+spec:
+  interval: 1m0s
+  ref:
+    branch: master
+  url: https://github.com/Ealenn/Echo-Server
+  ignore: |
+    # exclude all
+    /*
+    # include only the following
+    !/docs/examples/echo.kube.yaml
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: echo
+spec:
+  interval: 1m0s
+  path: ./docs/examples
+  prune: true
+  targetNamespace: echo
+  sourceRef:
+    kind: GitRepository
+    name: echo

@@ -3,12 +3,4 @@ kind: Kustomization
 resources:
   - ../base/podinfo
   - ../base/nginx
-patches:
-  - target:
-      kind: HorizontalPodAutoscaler
-      name: podinfo
-      namespace: info
-    patch: |-
-      - op: replace 
-        path: /spec/minReplicas
-        value: 1
+

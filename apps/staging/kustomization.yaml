@@ -7,8 +7,8 @@ patches:
   - target:
       kind: HorizontalPodAutoscaler
       name: podinfo
-      namespace: podinfo
+      namespace: info
     patch: |-
       - op: replace 
         path: /spec/minReplicas
-        value: 3
+        value: 1
